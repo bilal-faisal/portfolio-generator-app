@@ -6,7 +6,6 @@ const page = () => {
       <header style={{ position: "fixed", top: 0, right: 0, padding: "20px" }}>
         <div style={{ color: "#333" }}>
           <Image src={"/user.png"} alt="Logo" width={25} height={25} />
-          
         </div>
       </header>
       <main style={{ display: "flex" }}>
