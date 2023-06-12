@@ -6,74 +6,48 @@ import "grapesjs/dist/css/grapes.min.css";
 import gjsPresetWebpage from "grapesjs-preset-webpage";
 
 const page = () => {
-   const [editor, setEditor] = useState(null);
+  const [myeditor, setMyEditor] :any = useState(null);
+  const [saveBtn, setsaveBtn]  = useState();
+  const editor = grapesjs.init({
+    container: "#editor",
+    plugins: [gjsPresetWebpage],
+    pluginsOpts: {
+      gjsPresetWebpage: {}
+    },
+    storageManager: {
+      type: 'local', // Storage type. Available: local | remote
+      autosave: true, // Store data automatically
+      autoload: true, // Autoload stored data on init
+      stepsBeforeSave: 1, // If autosave is enabled, indicates how many changes are necessary before the store method is triggered
+      // ...
+      // Default storage options
+      options: {
+        local: true,
+        remote: false,
+      }
+    },  
+  });
 
-   useEffect(() => {
-    const editor = grapesjs.init({
-      container: "#editor",
-      plugins: [gjsPresetWebpage],
-      pluginsOpts: {
-        gjsPresetWebpage: {}
-      },  
-    });
-    setEditor(editor);
+   useEffect(() => {    
+    setMyEditor(editor);
   }, []);
 
+  const SaveFunction=()=>{
+    const projectData = editor?.store();
+    console.log(projectData.html);
+    console.log(projectData.css);
+    editor?.load();
+  }
 
-   // useEffect(() => {
-  //   const editor = grapesjs.init({
-  //     container: "#editor",
-  //     plugins: [gjsPresetWebpage],
-  //     pluginsOpts: {
-  //       gjsPresetWebpage: {}
-  //     },
-  //   });
-  //   // @ts-ignore
-  //   setEditor(editor);
-  // }, []);
-  //   useEffect(() => {
-  // const editor = grapesjs.init({
-  //   // Indicate where to init the editor. You can also pass an HTMLElement
-  //   container: "#gjs",
-  //   // Get the content for the canvas directly from the element
-  //   // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
-  //   fromElement: true,
-  //   // Size of the editor
-  //   height: "300px",
-  //   width: "auto",
-  //   // Disable the storage manager for the moment
-  //   storageManager: false,
-  //   // Avoid any default panel
-  //   panels: { defaults: [] },
-  // });
-  // const editor = grapesjs.init({
-  //   container: "#gjs",
-  //   fromElement: true,
-  //   height: "300px",
-  //   width: "auto",
-  //   storageManager: false,
-  //   style: "body { margin: 0; padding: 0; box-sizing: border-box; }",
-  // });
-
-  // const editor = grapesjs.init({
-  //   container: "#gjs",
-  //   fromElement: true,
-  //   height: "300px",
-  //   width: "auto",
-  //   storageManager: false,
-  // });
-
-  // editor.BlockManager.add("my-first-block", {
-  //   label: "Header",
-  //   content: "<header><h1>Hello World!</h1></header>",
-  //   category: "Basic",
-  // });
-  //   }, []);
   return (
     <div className="App">
-      <div id="editor">heloo</div>
+      <header style={{alignItems:'center',display:'flex',color:'black',zIndex:100000}}>
+        <button >logo</button>
+        <button onClick={()=>SaveFunction()} >Save</button>
+      </header>
+      <div id="editor">
+      </div>
     </div>
   );
 };
-
 export default page;
