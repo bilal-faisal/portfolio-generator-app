@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import logo from "../../../public/logo.png";
 
 const page = () => {
   return (
@@ -37,9 +39,12 @@ const page = () => {
                 marginBottom: 15,
               }}
             >
-              <a href="#" style={{ color: "gray" }}>
-                Already Registered? Login
-              </a>
+              <p>
+                Already Registered?{" "}
+                <Link href={"/login"} className="font-semibold underline">
+                  Login
+                </Link>
+              </p>
             </div>
 
             <div className="flex flex-col">
@@ -127,7 +132,9 @@ const page = () => {
         </div>
 
         <div style={{ width: "40%", padding: 50 }}>
-          <img src="logo.png" alt="Logo" style={{ width: "100%" }} />
+          <Link href={"/"}>
+            <Image src={logo} alt="logo image" />
+          </Link>
         </div>
       </main>
     </div>

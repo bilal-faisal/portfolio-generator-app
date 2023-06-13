@@ -10,9 +10,10 @@ const page = () => {
   useEffect(() => {
     const editor = grapesjs.init({
       container: "#editor",
+      fromElement: true,
       plugins: [gjsPresetWebpage],
       pluginsOpts: {
-        gjsPresetWebpage: {}
+        gjsPresetWebpage: {},
       },
     });
     // @ts-ignore

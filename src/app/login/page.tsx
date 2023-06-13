@@ -1,21 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
+import logo from "../../../public/logo.png";
 
 const page = () => {
   return (
-    <div className="App">
+    <div>
       <header style={{ position: "fixed", top: 0, right: 0, padding: "20px" }}>
         <div style={{ color: "#333" }}>
           <Image src={"/user.png"} alt="Logo" width={25} height={25} />
         </div>
       </header>
-      <main style={{ display: "flex" }}>
+      <main className="flex">
         <div style={{ width: "50%", padding: "50px 200px 0 200px" }}>
           <form>
             <h2
               style={{
-                marginBottom: "20px",
                 fontSize: "50px",
-                marginLeft: "100px",
                 fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                 fontWeight: "bolder",
               }}
@@ -30,9 +30,7 @@ const page = () => {
                 marginBottom: "15px",
               }}
             >
-              <p
-                style={{ color: "gray", marginLeft: "100px", fontSize: "20px" }}
-              >
+              <p style={{ color: "gray", fontSize: "20px" }}>
                 Sign in To Continue
               </p>
             </div>
@@ -89,8 +87,9 @@ const page = () => {
                   }}
                 />
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div className="w-full flex flex-col gap-3 my-2">
                 <button
+                  className="self-center"
                   type="submit"
                   style={{
                     padding: "15px 40px",
@@ -99,19 +98,24 @@ const page = () => {
                     border: "none",
                     cursor: "pointer",
                     fontSize: "20px",
-                    borderRadius: "12%",
-                    fontFamily:
-                      "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                   }}
                 >
                   LOGIN
                 </button>
+                <p>
+                  Don't have an account.{" "}
+                  <Link href={"/signup"} className="font-semibold underline">
+                    Register now
+                  </Link>
+                </p>
               </div>
             </div>
           </form>
         </div>
         <div style={{ width: "50%", padding: "50px" }}>
-          <img src="logo.png" alt="Logo" style={{ width: "100%" }} />
+          <Link href={"/"}>
+            <Image src={logo} alt="logo image" />
+          </Link>
         </div>
       </main>
     </div>
