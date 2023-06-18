@@ -1,13 +1,24 @@
+"use client"
 import SideBar from "@/components/SideBar";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
 
 const Page = () => {
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem("user");
+    const parsedValue = storedValue ? JSON.parse(storedValue) : null;
+    setUser(parsedValue);
+  }, []);
+
   return (
     <div className="bg-light-gray">
       <SideBar />
       <div className="flex space-x-2 absolute top-10 right-10">
-        <span style={{ fontWeight: "bold", fontSize: 20 }}>Pro Profile</span>
+        <span style={{ fontWeight: "bold", fontSize: 20 }}>{user ? user.username : "loading"}</span>
 
         <div style={{ color: "#333" }}>
           <Image src={"/user.png"} alt="Logo" width={25} height={25} />

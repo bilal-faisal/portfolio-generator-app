@@ -1,26 +1,40 @@
 {
   "cssImports": {
-    "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/layout.tsx": [
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}",
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/globals.css"
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\layout.tsx": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css"
+    ],
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\builder\\page.tsx": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\builder\\style.scss",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\grapesjs\\dist\\css\\grapes.min.css"
     ]
   },
   "cssModules": {
-    "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/page": [
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/globals.css",
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\login\\page": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
     ],
-    "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/signup/page": [
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/globals.css",
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\about\\page": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
     ],
-    "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/about/page": [
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/globals.css",
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\page": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
     ],
-    "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/login/page": [
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/globals.css",
-      "/home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\signup\\page": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    ],
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\dashboard\\page": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}"
+    ],
+    "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\builder\\page": [
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\globals.css",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\src\\app\\builder\\style.scss",
+      "C:\\Users\\bilal\\Desktop\\New folder (2)\\Frontend\\node_modules\\grapesjs\\dist\\css\\grapes.min.css"
     ]
   }
 }

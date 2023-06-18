@@ -1,8 +1,44 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logo.png";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const [credentials, setCredentials] = useState({
+    username: undefined,
+    email: undefined,
+    password: undefined,
+  });
+  const router = useRouter();
+
+  const handleChange = (e: any) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleClick = async (e: any) => {
+    e.preventDefault();
+    console.log(credentials);
+    // dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post(
+        "http://localhost:1234/api" + "/auth/register",
+        credentials
+      );
+      // console.log(res.data.details);
+      // dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+      // navigate("/");
+      
+      alert("Success SignUp");
+      router.push("/login");
+    } catch (err) {
+      console.log(err);
+      // dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }
+  };
+
   return (
     <div>
       <header style={{ position: "fixed", top: 0, right: 0, padding: "20px" }}>
@@ -19,7 +55,7 @@ const page = () => {
             paddingTop: 50,
           }}
         >
-          <form>
+          <form onSubmit={handleClick}>
             <h2
               style={{
                 marginBottom: 20,
@@ -52,9 +88,11 @@ const page = () => {
                 NAME
               </label>
               <input
-                type="text"
-                id="name"
                 placeholder="Your Name"
+                type="text"
+                id="username"
+                name="username"
+                onChange={handleChange}
                 style={{
                   marginBottom: 20,
                   padding: 10,
@@ -66,6 +104,7 @@ const page = () => {
                   paddingRight: 40,
                   paddingTop: 14,
                 }}
+                required
               />
             </div>
 
@@ -74,9 +113,11 @@ const page = () => {
                 EMAIL
               </label>
               <input
+                placeholder="Your Email"
                 type="email"
                 id="email"
-                placeholder="Your Email"
+                name="email"
+                onChange={handleChange}
                 style={{
                   marginBottom: 20,
                   padding: 10,
@@ -87,6 +128,7 @@ const page = () => {
                   outline: "none",
                   paddingTop: 14,
                 }}
+                required
               />
             </div>
 
@@ -98,6 +140,8 @@ const page = () => {
                 type="password"
                 id="password"
                 placeholder="Your Password"
+                name="password"
+                onChange={handleChange}
                 style={{
                   marginBottom: 20,
                   padding: 10,
@@ -108,6 +152,7 @@ const page = () => {
                   outline: "none",
                   paddingTop: 14,
                 }}
+                required
               />
             </div>
 

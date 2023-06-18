@@ -6,8 +6,8 @@ import "grapesjs/dist/css/grapes.min.css";
 import gjsPresetWebpage from "grapesjs-preset-webpage";
 
 const page = () => {
-  const [myeditor, setMyEditor] :any = useState(null);
-  const [saveBtn, setsaveBtn]  = useState();
+  const [myeditor, setMyEditor]: any = useState(null);
+  const [saveBtn, setsaveBtn] = useState();
   const editor = grapesjs.init({
     container: "#editor",
     plugins: [gjsPresetWebpage],
@@ -25,25 +25,26 @@ const page = () => {
         local: true,
         remote: false,
       }
-    },  
+    },
   });
 
-   useEffect(() => {    
+  useEffect(() => {
     setMyEditor(editor);
   }, []);
 
-  const SaveFunction=()=>{
+  const SaveFunction = () => {
     const projectData = editor?.store();
-    console.log(projectData.html);
-    console.log(projectData.css);
+    console.log(projectData);
+    // console.log(projectData.html);
+    // console.log(projectData.css);
     editor?.load();
   }
 
   return (
     <div className="App">
-      <header style={{alignItems:'center',display:'flex',color:'black',zIndex:100000}}>
+      <header style={{ alignItems: 'center', display: 'flex', color: 'black', zIndex: 100000 }}>
         <button >logo</button>
-        <button onClick={()=>SaveFunction()} >Save</button>
+        <button onClick={() => SaveFunction()} >Save</button>
       </header>
       <div id="editor">
       </div>

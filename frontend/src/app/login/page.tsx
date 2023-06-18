@@ -1,8 +1,55 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logo.png";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  
+  const router = useRouter();
+  const [error, setError] = useState<any>(null);
+  // const router = useRouter();
+  const [credentials, setCredentials] = useState({
+    email: undefined,
+    password: undefined,
+  });
+
+  const handleChange = (e: any) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleClick = async (e: any) => {
+    e.preventDefault();
+    // console.log(credentials);
+    // dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post(
+        "http://localhost:1234/api" + "/auth/login",
+        credentials
+      );
+      console.log(res);
+      console.log(res.data.details);
+
+      localStorage.setItem("user", JSON.stringify(res.data.details));
+
+      // router.push("/dashboard");
+
+      // navigate("/");
+
+      alert("Success Login");
+      router.push("/dashboard");
+
+      //   alert(res.data.details);
+      // dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+    } catch (err) {
+      setError(err);
+      console.log(err);
+      // dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }
+  };
+
   return (
     <div>
       <header style={{ position: "fixed", top: 0, right: 0, padding: "20px" }}>
@@ -47,9 +94,11 @@ const page = () => {
                   E M A I L
                 </label>
                 <input
+                  placeholder="Your Email"
                   type="email"
                   id="email"
-                  placeholder="Your Email"
+                  name="email"
+                  onChange={handleChange}
                   style={{
                     marginBottom: "20px",
                     padding: "10px",
@@ -76,6 +125,8 @@ const page = () => {
                   type="password"
                   id="password"
                   placeholder="Your Password"
+                  name="password"
+                  onChange={handleChange}
                   style={{
                     marginBottom: "20px",
                     padding: "10px",
@@ -90,6 +141,7 @@ const page = () => {
               <div className="w-full flex flex-col gap-3 my-2">
                 <button
                   className="self-center"
+                  onClick={handleClick}
                   type="submit"
                   style={{
                     padding: "15px 40px",
@@ -102,6 +154,11 @@ const page = () => {
                 >
                   LOGIN
                 </button>
+                {error && (
+                  <div style={{ color: "red" }} className="error-p">
+                    {error.message}
+                  </div>
+                )}
                 <p>
                   Don't have an account.{" "}
                   <Link href={"/signup"} className="font-semibold underline">

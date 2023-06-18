@@ -15,6 +15,18 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    arrayItems: [
+      {
+        property1: {
+          type: String,
+          required: true,
+        },
+        property2: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

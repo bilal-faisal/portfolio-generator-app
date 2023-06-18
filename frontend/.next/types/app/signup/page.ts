@@ -1,4 +1,4 @@
-// File: /home/ads/Desktop/P-Projects/portfolio-generator-app/frontend/src/app/signup/page.tsx
+// File: C:\Users\bilal\Desktop\New folder (2)\Frontend\src\app\signup\page.tsx
 import * as entry from '../../../../src/app/signup/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
