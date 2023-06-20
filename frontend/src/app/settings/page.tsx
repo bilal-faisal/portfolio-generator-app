@@ -22,7 +22,7 @@ const page = () => {
         <div className="p-4  border-gray-200  dark:border-gray-700">
           <div className="flex mb-4 rounded  ">
             <div>
-              <a
+              <p
                 style={{
                   fontSize: "40px",
                   fontWeight: "bolder",
@@ -40,7 +40,7 @@ const page = () => {
                     paddingRight: "15px",
                   }}
                 ></i>
-              </a>
+              </p>
             </div>
           </div>
 

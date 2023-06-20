@@ -2,11 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
-import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/hotels.js";
-import roomsRoute from "./routes/rooms.js";
-import carsRoute from "./routes/cars.js";
-// import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+// import { json, raw } from "body-parser";
+import pkg from "body-parser";
+const { json, raw } = pkg;
 import cors from "cors";
 
 const app = express();
@@ -25,26 +24,13 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
-const genres = [
-  { id: 1, name: "Action" },
-  { id: 2, name: "Horror" },
-  { id: 3, name: "Romance" },
-];
-
-app.get("/api/genres", (req, res) => {
-  res.send(genres);
-});
-
 //middlewares
 app.use(cors());
 // app.use(cookieParser());
 app.use(express.json());
-
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(raw({ limit: "50mb" }));
 app.use("/api/auth", authRoute);
-app.use("/api/users", usersRoute);
-app.use("/api/hotels", hotelsRoute);
-app.use("/api/rooms", roomsRoute);
-app.use("/api/cars", carsRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

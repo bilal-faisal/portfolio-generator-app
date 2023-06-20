@@ -34,9 +34,9 @@ const page = () => {
             </Link>
           </nav>
 
-          <a className="flex items-center">
+          <p className="flex items-center">
             <Image src={"/logo.png"} alt="Logo" width={170} height={170} />
-          </a>
+          </p>
         </div>
       </header>
       <div className="flex flex-wrap text-center items-center">

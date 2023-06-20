@@ -1,13 +1,13 @@
-"use client";
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logo.png";
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+// import { useRouter } from 'next/router';
 
 const page = () => {
-  
   const router = useRouter();
   const [error, setError] = useState<any>(null);
   // const router = useRouter();
@@ -25,26 +25,22 @@ const page = () => {
     // console.log(credentials);
     // dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post(
-        "http://localhost:1234/api" + "/auth/login",
-        credentials
-      );
+      const res = await axios.post("http://localhost:1234/api" + "/auth/login", credentials);
       console.log(res);
       console.log(res.data.details);
 
-      localStorage.setItem("user", JSON.stringify(res.data.details));
+      localStorage.setItem('user', JSON.stringify(res.data.details));
 
       // router.push("/dashboard");
 
       // navigate("/");
 
-      alert("Success Login");
+      // alert("Success Login");
       router.push("/dashboard");
-
       //   alert(res.data.details);
       // dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
     } catch (err) {
-      setError(err);
+      setError("There was an error in logging In.......");
       console.log(err);
       // dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
@@ -59,7 +55,7 @@ const page = () => {
       </header>
       <main className="flex">
         <div style={{ width: "50%", padding: "50px 200px 0 200px" }}>
-          <form>
+          <form onSubmit={handleClick}>
             <h2
               style={{
                 fontSize: "50px",
@@ -108,6 +104,7 @@ const page = () => {
                     fontSize: "16px",
                     outline: "none",
                   }}
+                  required
                 />
               </div>
               <div style={{ display: "flex", flexDirection: "column" }}>
@@ -136,12 +133,12 @@ const page = () => {
                     fontSize: "16px",
                     outline: "none",
                   }}
+                  required
                 />
               </div>
               <div className="w-full flex flex-col gap-3 my-2">
                 <button
                   className="self-center"
-                  onClick={handleClick}
                   type="submit"
                   style={{
                     padding: "15px 40px",
@@ -154,11 +151,7 @@ const page = () => {
                 >
                   LOGIN
                 </button>
-                {error && (
-                  <div style={{ color: "red" }} className="error-p">
-                    {error.message}
-                  </div>
-                )}
+                {error && <div style={{ color: "red" }} className="error-p">{error}</div>}
                 <p>
                   Don't have an account.{" "}
                   <Link href={"/signup"} className="font-semibold underline">
@@ -174,8 +167,8 @@ const page = () => {
             <Image src={logo} alt="logo image" />
           </Link>
         </div>
-      </main>
-    </div>
+      </main >
+    </div >
   );
 };
 

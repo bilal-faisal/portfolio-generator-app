@@ -14,6 +14,7 @@ const page = () => {
     const parsedValue = storedValue ? JSON.parse(storedValue) : null;
     setUser(parsedValue);
   }, []);
+
   return (
     <div className="h-screen bg-gray-200">
       <SideBar />
@@ -29,7 +30,7 @@ const page = () => {
         <div className="p-8  border-gray-200  dark:border-gray-700">
           <div className="flex   mb-4 rounded  ">
             <div>
-              <a
+              <p
                 style={{
                   fontSize: "40px",
                   fontWeight: "bolder",
@@ -47,7 +48,7 @@ const page = () => {
                     paddingLeft: "15px",
                   }}
                 ></i>
-              </a>
+              </p>
               <p
                 style={{
                   marginLeft: "30px",
@@ -61,7 +62,7 @@ const page = () => {
           </div>
 
           <div className="  mb-4 rounded  ">
-            <a
+            <p
               style={{
                 fontSize: "30px",
                 fontWeight: "bolder",
@@ -71,7 +72,7 @@ const page = () => {
               }}
             >
               Hello, can I help you with something?
-            </a>
+            </p>
             <HelpButton />
           </div>
         </div>

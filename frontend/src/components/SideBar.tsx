@@ -2,9 +2,25 @@
 import { useState } from "react";
 import Link from "next/link";
 import React from "react";
+import { useEffect } from 'react';
+import { redirect, useRouter } from "next/navigation";
 
 const SideBar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const removeItemFromLocalStorage = () => {
+    if (isClient) {
+      localStorage.removeItem('user');
+      router.push("/login");
+    }
+  };
   return (
     <>
       <button
@@ -36,15 +52,14 @@ const SideBar = () => {
 
       <aside
         id="default-sidebar"
-        className={`fixed top-0 left-0 z-40 w-full h-screen transition-transform bg-black sm:w-1/5 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } sm:translate-x-0`}
+        className={`fixed top-0 left-0 z-40 w-full h-screen transition-transform bg-black sm:w-1/5 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } sm:translate-x-0`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-black">
           <ul className="space-y-2 font-medium text-white">
             <li style={{ marginBottom: 100, paddingLeft: 20, marginTop: 30 }}>
-              <a href="#" className="flex items-center rounded-lg">
+              <p className="flex items-center rounded-lg">
                 <svg
                   aria-hidden="true"
                   className="w-6 h-6 transition duration-75 group-hover:text-white"
@@ -61,10 +76,10 @@ const SideBar = () => {
                 >
                   Dashboard
                 </span>
-              </a>
+              </p>
             </li>
             <li style={{ marginBottom: 30, marginLeft: 20, marginTop: 30 }}>
-              <a href="#" className="flex items-center rounded-lg">
+              <Link href="/dashboard" className="flex items-center rounded-lg">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -80,7 +95,7 @@ const SideBar = () => {
                 <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
                   Pro
                 </span>
-              </a>
+              </Link>
             </li>
             <li style={{ marginBottom: 30, marginLeft: 20, marginTop: 20 }}>
               <Link href="/projects" className="flex items-center rounded-lg">
@@ -98,7 +113,7 @@ const SideBar = () => {
                   My Projects
                 </span>
                 <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                  3
+
                 </span>
               </Link>
             </li>
@@ -112,19 +127,19 @@ const SideBar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
                 <span className="flex-1 ml-3 whitespace-nowrap">Support</span>
                 <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                  3
+
                 </span>
               </Link>
             </li>
             <li style={{ marginBottom: 30, marginLeft: 20, marginTop: 20 }}>
-              <a href="#" className="flex items-center rounded-lg">
+              <p className="flex items-center rounded-lg">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -133,13 +148,13 @@ const SideBar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap">Sign out</span>
-              </a>
+                <span className="flex-1 ml-3 whitespace-nowrap" onClick={removeItemFromLocalStorage}>Sign out</span>
+              </p>
             </li>
           </ul>
         </div>
