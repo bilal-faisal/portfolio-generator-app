@@ -40,7 +40,7 @@ const page = () => {
       //   alert(res.data.details);
       // dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
     } catch (err) {
-      setError("There was an error in logging In.......");
+      setError("Email or password is incorrect.");
       console.log(err);
       // dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }

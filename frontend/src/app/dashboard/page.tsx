@@ -67,7 +67,7 @@ const Page = () => {
             </div>
             <div>
               <a className="text-4xl font-bold ml-6 mt-20 inline-block">
-                Customize a Designed Template
+                Customize
               </a>
               <p className="ml-6">Create Template using built-in components.</p>
             </div>
