@@ -50,9 +50,11 @@ const Page = () => {
 
       <div className="p-4 sm:ml-64 mt-14">
         <div className="p-4 border bg-gray-200 dark:border-gray-700">
+          
+        <Link href={"/templates"} >
           <div
-            className="flex h-52 mb-4 bg-gray-50 shadow-md rounded-xl cursor-no-drop"
-            style={{ height: "210px" , filter: "blur(1.5px)"}}
+            className="flex h-52 mb-4 bg-gray-50 shadow-md rounded-xl"
+            style={{ height: "210px" }}
           >
             <div>
               <img
@@ -72,6 +74,7 @@ const Page = () => {
               <p className="ml-6">Create Template using built-in components.</p>
             </div>
           </div>
+          </Link>
           <Link href={"/builder"} target="_blank">
             <div
               className="flex h-52 mb-4 bg-gray-50 mt-6 shadow-md rounded-xl"
