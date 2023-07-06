@@ -11,32 +11,38 @@ const Page = () => {
   let data = [
     {
       id: 1,
-      title: "Doctor",
-      image: "fyp3.jpg",
+      title: "Software Engineer",
+      image: "template1.png",
       link: "",
     },
     {
       id: 2,
-      title: "Engineer",
-      image: "fyp3.jpg",
+      title: "Web Designer",
+      image: "template2.png",
       link: "",
     },
     {
       id: 3,
-      title: "Web developer",
-      image: "fyp3.jpg",
+      title: "Web Developer",
+      image: "template3.png",
       link: "",
     },
     {
       id: 4,
-      title: "Web designer",
-      image: "fyp3.jpg",
+      title: "Photographer",
+      image: "template4.png",
       link: "",
     },
     {
       id: 5,
-      title: "Graphic designer",
-      image: "fyp3.jpg",
+      title: "Teacher",
+      image: "template5.png",
+      link: "",
+    },
+    {
+      id: 6,
+      title: "Doctor",
+      image: "template6.png",
       link: "",
     },
   ];
@@ -84,7 +90,11 @@ const Page = () => {
                   <p className="text-lg">No item matches your result</p>
                 ) : (
                   filteredData.map((item) => (
-                    <div key={item.id}>
+                    <Link
+                      key={item.id}
+                      href={`http://localhost/WEBTEMPLATE${item.id}/index.html`}
+                      target="_blank"
+                    >
                       <Image
                         src={`/${item.image}`}
                         alt="Logo"
@@ -95,7 +105,7 @@ const Page = () => {
                       <div className="border border-gray-300 p-2 rounded-b-md bg-gray-100">
                         {item.title}
                       </div>
-                    </div>
+                    </Link>
                   ))
                 )}
               </div>
