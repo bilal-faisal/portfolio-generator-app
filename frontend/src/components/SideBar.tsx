@@ -59,7 +59,7 @@ const SideBar = () => {
         <div className="h-full px-3 py-4 overflow-y-auto bg-black">
           <ul className="space-y-2 font-medium text-white">
             <li style={{ marginBottom: 100, paddingLeft: 20, marginTop: 30 }}>
-              <p className="flex items-center rounded-lg">
+              <p className="flex items-center rounded-lg cursor-pointer">
                 <svg
                   aria-hidden="true"
                   className="w-6 h-6 transition duration-75 group-hover:text-white"
@@ -79,7 +79,7 @@ const SideBar = () => {
               </p>
             </li>
             <li style={{ marginBottom: 30, marginLeft: 20, marginTop: 30 }}>
-              <Link href="/dashboard" className="flex items-center rounded-lg">
+              <Link href="/dashboard" className="flex items-center rounded-lg cursor-pointer">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -139,7 +139,7 @@ const SideBar = () => {
               </Link>
             </li>
             <li style={{ marginBottom: 30, marginLeft: 20, marginTop: 20 }}>
-              <p className="flex items-center rounded-lg">
+              <p className="flex items-center rounded-lg cursor-pointer">
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
